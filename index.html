@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Calculadora</title>
+
+</head>
+
+<body>
+  <div class="container">
+    <output class="screen" id="screen">0</output>
+    <div class="keypad">
+      <button type="button" class="key action" data-action="percent" aria-label="Porcentaje">%</button>
+      <button type="button" class="key action" data-action="clear-entry" aria-label="Borrar entrada actual">CE</button>
+      <button type="button" class="key action" data-action="clear" aria-label="Borrar todo">C</button>
+      <button type="button" class="key action" data-action="delete" aria-label="Borrar último dígito">←</button>
+      <button type="button" class="key action" data-action="square" aria-label="Elevar al cuadrado">x²</button>
+      <button type="button" class="key action" data-action="square-root" aria-label="Raíz cuadrada">²&radic;x</button>
+      <button type="button" class="key action" data-action="toggle-sing" aria-label="Cambiar signo">+/-</button>
+      <button type="button" class="key operator" data-action="split" aria-label="Dividir">÷</button>
+      <button type="button" class="number" data-number="7">7</button>
+      <button type="button" class="number" data-number="8">8</button>
+      <button type="button" class="number" data-number="9">9</button>
+      <button type="button" class="key operator" data-operator="×" aria-label="Multiplicar">×</button>
+      <button type="button" class="number" data-number="4">4</button>
+      <button type="button" class="number" data-number="5">5</button>
+      <button type="button" class="number" data-number="6">6</button>
+      <button type="button" class="key operator" data-operator="+" aria-label="Sumar">+</button>
+      <button type="button" class="number" data-number="1">1</button>
+      <button type="button" class="number" data-number="2">2</button>
+      <button type="button" class="number" data-number="3">3</button>
+      <button type="button" class="key operator" data-operator="-" aria-label="Restar">-</button>
+      <button type="button" class="key operator" data-operator="." aria-label="Punto decimal">,</button>
+      <button type="button" class="number" data-number="0">0</button>
+      <button type="button" class="equals" data-action="equals" aria-label="Igual">=</button>
+
+    </div>
+  </div>
+</body>
+
+</html>
