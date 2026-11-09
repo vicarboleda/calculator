@@ -24,11 +24,25 @@ body {
   gap: 25px;
 }
 
+.display {
+  width: 95%;
+}
+
+.expression {
+  min-height: 1.5rem;
+  text-align: right;
+  font-family: monospace;
+  font-size: 1rem;
+  color: #4B5563;
+  padding: 0 1.5rem;
+}
+
+
 .screen {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 95%;
+  width: 100%;
   min-height: 5rem;
   padding: 0 1.5rem;
   background-color: #DFE9EC;
