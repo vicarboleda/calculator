@@ -1,14 +1,8 @@
-import {operators} from './operations.js';
 import {state} from './state.js';
-import { formatResult, showResult, showError, showExpression} from './display.js';
+import { chooseOperator, clearAll, clearEntry, deleteLastDigit, equalsOperation } from './actions.js';
+import { showResult } from './display.js';
 
 const keypad = document.querySelector('.keypad');
-
-function resetOperation() {
-  state.previousValue = null;
-  state.operator = null;
-  state.operatorSymbol = '';
-}
 
 keypad.addEventListener('click', (event)=>{
   const data = event.target.dataset;
@@ -24,32 +18,22 @@ keypad.addEventListener('click', (event)=>{
     showResult(state.currentValue);
 
   } else if(data.operator !== undefined){
-    
-    state.previousValue = state.currentValue;
-    state.currentValue = '0';
-    state.operator = data.operator;
-    state.operatorSymbol = event.target.textContent.trim();
-    showExpression(`${state.previousValue} ${state.operatorSymbol}`);
-  } 
-  else if(data.action === 'equals'){
-      if(state.previousValue === null || state.currentValue === null) return;
-
-      const a = Number(state.previousValue);
-      const b = Number(state.currentValue);
-      const operatorFunction = operators[state.operator];
-      const expression = `${state.previousValue} ${state.operatorSymbol} ${state.currentValue} =`;
-
-      try{
-        const result = operatorFunction(a , b);
-        state.currentValue = String(formatResult(result));
-        showExpression(expression);
-        showResult(state.currentValue);
-      } catch(error){
-        state.currentValue = '0';
-        showExpression('');
-        showError(error.message);
-      }
-      resetOperation();
+    chooseOperator(data.operator, event.target.textContent.trim());
+  }
+  else if(data.action !== undefined){
+    switch(data.action){
+      case 'equals':
+        equalsOperation();
+        break;
+      case 'clear':
+        clearAll();
+        break;
+      case 'clear-entry':
+        clearEntry();
+        break;
+      case 'delete':
+        deleteLastDigit();
+        break;
     }
-    
+  }
 })
